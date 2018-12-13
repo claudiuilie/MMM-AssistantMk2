@@ -95,10 +95,10 @@ Module.register("MMM-AssistantMk2", {
             return []
           },
           exec: (module, params, key) => {
+           
             module.hide(1000, null, {lockString:"AMK2"})
           }
         }
-        console.log('hide alllll');
       },
       "SHOWMODULES": {
         moduleExec: {
@@ -109,15 +109,13 @@ Module.register("MMM-AssistantMk2", {
         }
       },
       "SCREENON": {
-        shellExec: {
-          exec: (params, key) => {
-            return "~/MagicMirror/modules/MMM-AssistantMk2/scripts/screenon.sh"
-            //return "ls -al"
-          },
-          options: (params, key)=> {
-            return ""
-          },
-        }
+        notificationExec: {
+          notification: "REFRESH",
+          payload: {
+            message: "You've ordered SAYHELLO.",
+            timer: 5000,
+          }
+        },
       },
       "SCREENOFF": {
         shellExec: {
