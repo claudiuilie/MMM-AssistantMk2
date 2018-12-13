@@ -33,21 +33,21 @@ Module.register("MMM-AssistantMk2", {
     },
 
     transcriptionHook: {
+      "FURNITURELED_ON": {
+        pattern: "lights on",
+        command: "FURNITURELEDON"
+      },
+      "FURNITURELED_OFF": {
+        pattern: "lights off",
+        command: "FURNITURELEDOFF"
+      },
       "HIDE_ALL_MODULES": {
-        pattern: "hide all",
-        command: "HIDEMODULES"
+        pattern: "go to sleep",
+        command: "HIDEALLMODULES"
       },
       "SHOW_ALL_MODULES": {
         pattern: "show all",
         command: "SHOWMODULES"
-      },
-      "SCREEN_ON": {
-        pattern: "wake up",
-        command: "SCREENON"
-      },
-      "SCREEN_OFF": {
-        pattern: "go to sleep",
-        command: "SCREENOFF"
       },
       "REBOOT": {
         pattern: "reboot yourself",
@@ -89,14 +89,29 @@ Module.register("MMM-AssistantMk2", {
     },
 
     command: {
-      "HIDEMODULES": {
+      "FURNITURELEDON": {
+        notificationExec: {
+          notification: "FURNITURELEDON",
+          payload: {
+            message: "You've ordered FURNITURELEDON.",
+            timer: 5000,
+          }
+        },
+      },
+      "FURNITURELEDOFF": {
+        notificationExec: {
+          notification: "FURNITURELEDOFF",
+          payload: {
+            message: "You've ordered FURNITURELEDOFF.",
+            timer: 5000,
+          }
+        },
+      },
+      "HIDEALLMODULES": {
         moduleExec: {
-          module:()=>{
-            return []
-          },
+          module:[],
           exec: (module, params, key) => {
-           
-            module.hide(1000, null, {lockString:"AMK2"})
+            module.hide()
           }
         }
       },
@@ -106,21 +121,6 @@ Module.register("MMM-AssistantMk2", {
           exec: (module, params, key) => {
             module.show(1000, null, {lockString:"AMK2"})
           }
-        }
-      },
-      "SCREENON": {
-        notificationExec: {
-          notification: "REFRESH",
-          payload: {
-            message: "You've ordered SAYHELLO.",
-            timer: 5000,
-          }
-        },
-      },
-      "SCREENOFF": {
-        shellExec: {
-          exec: "~/MagicMirror/modules/MMM-AssistantMk2/scripts/screenoff.sh",
-          options: null,
         }
       },
       "REBOOT": {
