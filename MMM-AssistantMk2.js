@@ -98,6 +98,7 @@ Module.register("MMM-AssistantMk2", {
             module.hide(1000, null, {lockString:"AMK2"})
           }
         }
+        console.log('hide alllll');
       },
       "SHOWMODULES": {
         moduleExec: {
