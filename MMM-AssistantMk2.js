@@ -93,7 +93,7 @@ Module.register("MMM-AssistantMk2", {
         notificationExec: {
           notification: "FURNITURELED_ON",
           payload: {
-            message: "Livind led " /*+notification.split('_')[1]*/
+            message: "Livind led ON" 
           }
         },
       },
@@ -101,7 +101,7 @@ Module.register("MMM-AssistantMk2", {
         notificationExec: {
           notification: "FURNITURELED_OFF",
           payload: {
-            message: "Living led " /*+notification.split('_')[1]*/
+            message: "Living led OFF" 
           }
         },
       },
