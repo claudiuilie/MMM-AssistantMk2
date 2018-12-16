@@ -827,6 +827,7 @@ class AssistantHelper {
     var onReady = (event) => {
       console.log("Youtube player: on ready.")
       if (type == "video") {
+
         event.target.loadVideoById(id)
       } else {
         event.target.loadPlaylist({
@@ -840,6 +841,7 @@ class AssistantHelper {
 
     var currentIndex = 0
     var onStateChange = (event)=>{
+     
       var playlist = event.target.getPlaylist()
       if (event.data == YT.PlayerState.PLAYING) {
         currentIndex = event.target.getPlaylistIndex();
@@ -869,6 +871,7 @@ class AssistantHelper {
 
     ytp = new YT.Player(yt.id, {
       playerVars: playerVars,
+      videoId: '1gMcRz2OoDg',
       events: {
         "onReady": onReady,
         "onStateChange": onStateChange,
