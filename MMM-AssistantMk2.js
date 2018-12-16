@@ -170,7 +170,7 @@ Module.register("MMM-AssistantMk2", {
     screenDuration: 0, //If you set 0, Screen Output will be closed after Response speech finishes.
 
     youtubeAutoplay: true,
-    pauseOnYoutube:true,
+    pauseOnYoutube:false,
     youtubePlayerVars: { // You can set youtube playerVars for your purpose, but should be careful.
       "controls": 0,
       "loop": 1,
@@ -815,7 +815,7 @@ class AssistantHelper {
       e.stopPropagation()
       ytp.stopVideo()
       onClose(holder, cb)
-    }
+    } // am ramas aici
     holder.appendChild(close)
     this.youtubePlaying = true
     var quality = this.config.youtubePlayQuality
@@ -825,7 +825,6 @@ class AssistantHelper {
     var onReady = (event) => {
       console.log("Youtube player: on ready.")
       if (type == "video") {
-
         event.target.loadVideoById(id)
       } else {
         event.target.loadPlaylist({
@@ -833,13 +832,14 @@ class AssistantHelper {
           list:id
         })
       }
+      console.log(type)
       event.target.playVideo()
       event.target.setPlaybackQuality(quality)
     }
 
     var currentIndex = 0
     var onStateChange = (event)=>{
-     
+      console.log(event);
       var playlist = event.target.getPlaylist()
       if (event.data == YT.PlayerState.PLAYING) {
         currentIndex = event.target.getPlaylistIndex();
@@ -869,7 +869,6 @@ class AssistantHelper {
 
     ytp = new YT.Player(yt.id, {
       playerVars: playerVars,
-      videoId: '1gMcRz2OoDg',
       events: {
         "onReady": onReady,
         "onStateChange": onStateChange,
