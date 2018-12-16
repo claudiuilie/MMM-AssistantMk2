@@ -91,19 +91,17 @@ Module.register("MMM-AssistantMk2", {
     command: {
       "FURNITURELEDON": {
         notificationExec: {
-          notification: "FURNITURELEDON",
+          notification: "FURNITURELED_ON",
           payload: {
-            message: "You've ordered FURNITURELEDON.",
-            timer: 5000,
+            message: "Livind led " /*+notification.split('_')[1]*/
           }
         },
       },
       "FURNITURELEDOFF": {
         notificationExec: {
-          notification: "FURNITURELEDOFF",
+          notification: "FURNITURELED_OFF",
           payload: {
-            message: "You've ordered FURNITURELEDOFF.",
-            timer: 5000,
+            message: "Living led " /*+notification.split('_')[1]*/
           }
         },
       },
