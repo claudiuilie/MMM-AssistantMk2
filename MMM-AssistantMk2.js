@@ -56,6 +56,10 @@ Module.register("MMM-AssistantMk2", {
       "SHUTDOWN": {
         pattern: "shutdown yourself",
         command: "SHUTDOWN"
+      },
+      "SHOW_ALL_MODULES": {
+        pattern: "wake up",
+        command: "SHOWMODULES"
       }
     },
     action: {
@@ -89,21 +93,30 @@ Module.register("MMM-AssistantMk2", {
     },
 
     command: {
+      // "FURNITURELEDON": {
+      //   notificationExec: {
+      //     notification: "FURNITURELED_ON",
+      //     payload: {
+      //       message: "Livind led ON" 
+      //     }
+      //   },
+      // },
       "FURNITURELEDON": {
-        notificationExec: {
-          notification: "FURNITURELED_ON",
-          payload: {
-            message: "Livind led ON" 
+        moduleExec: {
+          module:["MMM-Arduino-Control"],
+          exec: (module, params, key) => {
+            module.callArduino("FURNITURELED_ON" , {message: "Turning on the light"})
+            
           }
-        },
+        }
       },
       "FURNITURELEDOFF": {
-        notificationExec: {
-          notification: "FURNITURELED_OFF",
-          payload: {
-            message: "Living led OFF" 
+        moduleExec: {
+          module:["MMM-Arduino-Control"],
+          exec: (module, params, key) => {
+            module.callArduino("FURNITURELED_OFF" , {message: "Turning on the light"})
           }
-        },
+        }
       },
       "HIDEALLMODULES": {
         moduleExec: {
