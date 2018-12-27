@@ -46,7 +46,7 @@ Module.register("MMM-AssistantMk2", {
         command: "HIDEALLMODULES"
       },
       "SHOW_ALL_MODULES": {
-        pattern: "show all",
+        pattern: "wake up",
         command: "SHOWMODULES"
       },
       "REBOOT": {
@@ -56,10 +56,6 @@ Module.register("MMM-AssistantMk2", {
       "SHUTDOWN": {
         pattern: "shutdown yourself",
         command: "SHUTDOWN"
-      },
-      "SHOW_ALL_MODULES": {
-        pattern: "wake up",
-        command: "SHOWMODULES"
       }
     },
     action: {
@@ -122,7 +118,7 @@ Module.register("MMM-AssistantMk2", {
         moduleExec: {
           module:[],
           exec: (module, params, key) => {
-            module.hide()
+            module.hide(1000, null, {lockString:"AMK2"})
           }
         }
       },
