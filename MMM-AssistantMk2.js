@@ -56,6 +56,18 @@ Module.register("MMM-AssistantMk2", {
       "SHUTDOWN": {
         pattern: "shutdown yourself",
         command: "SHUTDOWN"
+      },
+      "HIGHLUMINOSITY":{
+        pattern: "set high luminosity",
+        command: "HIGHLUMINOSITY"
+      },
+      "MEDIUMLUMINOSITY":{
+        pattern: "set medium luminosity",
+        command: "MEDIUMLUMINOSITY"
+      },
+      "LOWLUMINOSITY":{
+        pattern: "set low luminosity",
+        command: "LOWLUMINOSITY"
       }
     },
     action: {
@@ -97,6 +109,34 @@ Module.register("MMM-AssistantMk2", {
       //     }
       //   },
       // },
+
+      "HIGHLUMINOSITY":{
+        moduleExec: {
+          module:["MMM-Remote-Control"],
+          exec: (module, params, key) => {
+            module.setBrightness(200)
+            
+          }
+        }
+      },
+      "MEDIUMLUMINOSITY":{
+        moduleExec: {
+          module:["MMM-Remote-Control"],
+          exec: (module, params, key) => {
+            module.setBrightness(100)
+            
+          }
+        }
+      },
+      "LOWLUMINOSITY":{
+        moduleExec: {
+          module:["MMM-Remote-Control"],
+          exec: (module, params, key) => {
+            module.setBrightness(10)
+            
+          }
+        }
+      },
       "FURNITURELEDON": {
         moduleExec: {
           module:["MMM-Arduino-Control"],
