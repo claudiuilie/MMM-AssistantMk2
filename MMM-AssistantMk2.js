@@ -107,9 +107,9 @@ Module.register("MMM-AssistantMk2", {
         },
         notificationExec: {
           notification:"ASSISTANT_SAY",
-          payload: {
-            message: "Sure, turning on the kitchen lights."
-          }
+          payload: [
+            "Sure, turning on the kitchen lights."
+          ]
         }
       },
       "FURNITURELEDOFF": {
@@ -121,9 +121,9 @@ Module.register("MMM-AssistantMk2", {
         },
         notificationExec: {
           notification:"ASSISTANT_SAY",
-          payload: {
-            message: "Sure, turning off the kitchen lights."
-          }
+          payload: [
+            "Sure, turning off the kitchen lights."
+          ]
         }
       },
       "HIDEALLMODULES": {
