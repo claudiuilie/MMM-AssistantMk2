@@ -34,11 +34,11 @@ Module.register("MMM-AssistantMk2", {
 
     transcriptionHook: {
       "FURNITURELED_ON": {
-        pattern: "lights on",
+        pattern: "kitchen lights on",
         command: "FURNITURELEDON"
       },
       "FURNITURELED_OFF": {
-        pattern: "lights off",
+        pattern: "kitchen lights off",
         command: "FURNITURELEDOFF"
       },
       "HIDE_ALL_MODULES": {
