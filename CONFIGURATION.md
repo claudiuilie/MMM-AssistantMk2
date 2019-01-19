@@ -197,5 +197,39 @@ This empty configuration will even work if you use;
         }
       },
     },
+  },{
+    module: "MMM-AssistantMk2",
+    position: "top_right",
+    config: {
+      record: {
+        recordProgram : "arecord",  
+        device        : "plughw:1",
+      },
+
+      notifications: {
+        ASSISTANT_ACTIVATED: "HOTWORD_PAUSE",
+        ASSISTANT_DEACTIVATED: "HOTWORD_RESUME",
+      },
+    }
+  },
+  {
+    module: "MMM-Hotword",
+    config: {
+      record: {
+        recordProgram : "arecord",  
+        device        : "plughw:1",
+      },
+      autostart:true,
+      onDetected: {
+        notification: function (payload) {
+          return "ASSISTANT_ACTIVATE"
+        },
+        payload: function (payload){
+          return {
+            profile: payload.hotword
+          }
+        }
+      },
+    },
   },
 ```
