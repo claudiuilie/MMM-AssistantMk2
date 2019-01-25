@@ -138,20 +138,18 @@ Module.register("MMM-AssistantMk2", {
         }
       },
       "FURNITURELEDON": {
-        moduleExec: {
-          module:["MMM-Arduino-Control"],
-          exec: (module, params, key) => {
-            module.callArduino("FURNITURELED_ON" , {message: "Turning on the light"})
-            // module.sendNotification("ASSISTANT_SAY", "Sure, turning on the kitchen lights.")
+        notificationExec: {
+          notification: "FURNITURELED_ON",
+          payload: {
+            urlApi: 'http://192.168.1.200/?FURNITURELED_ON'
           }
         }
       },
       "FURNITURELEDOFF": {
-        moduleExec: {
-          module:["MMM-Arduino-Control"],
-          exec: (module, params, key) => {
-            module.callArduino("FURNITURELED_OFF" , {message: "Turning on the light"})
-            // module.sendNotification("ASSISTANT_SAY", "Sure, turning off the kitchen lights.")
+        notificationExec: {
+          notification: "FURNITURELED_OFF",
+          payload: {
+            urlApi: 'http://192.168.1.200/?FURNITURELED_OFF'
           }
         }
       },
