@@ -142,14 +142,8 @@ Module.register("MMM-AssistantMk2", {
           module:["MMM-Arduino-Control"],
           exec: (module, params, key) => {
             module.callArduino("FURNITURELED_ON" , {message: "Turning on the light"})
-            
+            module.sendNotification("ASSISTANT_SAY", "Sure, turning on the kitchen lights.")
           }
-        },
-        notificationExec: {
-          notification:"ASSISTANT_SAY",
-          payload: [
-            "Sure, turning on the kitchen lights."
-          ]
         }
       },
       "FURNITURELEDOFF": {
@@ -157,13 +151,8 @@ Module.register("MMM-AssistantMk2", {
           module:["MMM-Arduino-Control"],
           exec: (module, params, key) => {
             module.callArduino("FURNITURELED_OFF" , {message: "Turning on the light"})
+            module.sendNotification("ASSISTANT_SAY", "Sure, turning off the kitchen lights.")
           }
-        },
-        notificationExec: {
-          notification:"ASSISTANT_SAY",
-          payload: [
-            "Sure, turning off the kitchen lights."
-          ]
         }
       },
       "HIDEALLMODULES": {
