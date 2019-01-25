@@ -25,10 +25,6 @@ Module.register("MMM-AssistantMk2", {
       "default" : {
         profileFile: "default.json",
         lang: "en-US"
-        //currently available (estimation, not all tested):
-        //  de-DE, en-AU, en-CA, en-GB, en-US, en-IN
-        // fr-CA, fr-FR, it-IT, ja-JP, es-ES, es-MX, ko-KR, pt-BR
-        // https://developers.google.com/assistant/sdk/reference/rpc/languages
       },
     },
 
@@ -162,15 +158,6 @@ Module.register("MMM-AssistantMk2", {
         }
       },
       "REBOOT": {
-        /*
-        notificationExec: {
-          notification: "SHOW_ALERT",
-          payload: {
-            message: "You've ordered REBOOT. I'm showing just alert, but you can modify config.js to reboot really.",
-            timer: 5000,
-          }
-        },
-        */
 
         shellExec: {
           exec: "sudo reboot now"
@@ -178,19 +165,6 @@ Module.register("MMM-AssistantMk2", {
 
       },
       "SHUTDOWN": {
-        /*
-        notificationExec: {
-          notification: (params, key) => {
-            return "SHOW_ALERT"
-          },
-          payload: (params, key)=> {
-            return {
-              message: "You've ordered SHUTDOWN. I'm showing just alert, but you can modify config.js to reboot really.",
-              timer: 5000,
-            }
-          }
-        },
-        */
 
         shellExec: {
           exec: "sudo shutdown now"
@@ -204,11 +178,8 @@ Module.register("MMM-AssistantMk2", {
     // Sometimes, any response could not be returned.
     ignoreNoVoiceError: true, //To avoid some annoying youtube stop bug.
 
-
-
     screenZoom: "80%",
     screenDuration: 0, //If you set 0, Screen Output will be closed after Response speech finishes.
-
     youtubeAutoplay: true,
     pauseOnYoutube:false,
     youtubePlayerVars: { // You can set youtube playerVars for your purpose, but should be careful.
@@ -218,9 +189,7 @@ Module.register("MMM-AssistantMk2", {
     },
     youtubePlayQuality: "default", //small, medium, large, hd720, hd1080, highres or default
 
-
     alertError: true,
-
     useWelcomeMessage: "",
 
     record: {
