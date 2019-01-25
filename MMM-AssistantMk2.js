@@ -145,7 +145,7 @@ Module.register("MMM-AssistantMk2", {
         moduleExec: {
           module:[],
           exec: (module, params, key) => {
-            module.hide(1000, null, {lockString:"AMK2"})
+            module.hide(1000, null, {lockString:this.identifier})
           }
         }
       },
@@ -153,7 +153,7 @@ Module.register("MMM-AssistantMk2", {
         moduleExec: {
           module:[],
           exec: (module, params, key) => {
-            module.show(1000, null, {lockString:"AMK2"})
+            module.show(1000, null, {lockString:this.identifier})
           }
         }
       },
