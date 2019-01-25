@@ -101,14 +101,6 @@ Module.register("MMM-AssistantMk2", {
     },
 
     command: {
-      // "FURNITURELEDON": {
-      //   notificationExec: {
-      //     notification: "FURNITURELED_ON",
-      //     payload: {
-      //       message: "Livind led ON" 
-      //     }
-      //   },
-      // },
 
       "HIGHLUMINOSITY":{
         moduleExec: {
